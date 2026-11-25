@@ -1,0 +1,34 @@
+# В Compose v2 поле version не нужно.
+services:
+  app1:
+    build: ./app1
+    volumes:
+      # Общий шаблон доступен только для чтения.
+      - ./storage:/storage:ro
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+  app2:
+    build: ./app2
+    volumes:
+      - ./storage:/storage:ro
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+  nginx:
+    build: ./nginx
+    ports:
+      # Открываем порт 443 только на этом компьютере.
+      - "127.0.0.1:443:443"
+    depends_on:
+      # Ждём, пока оба приложения начнут отвечать.
+      app1:
+        condition: service_healthy
+      app2:
+        condition: service_healthy

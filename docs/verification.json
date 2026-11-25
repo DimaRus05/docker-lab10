@@ -1,0 +1,699 @@
+{
+  "checked_at": "2026-11-23T19:07:44.555777+00:00",
+  "checks": [
+    {
+      "check": "Compose configuration",
+      "result": "PASS",
+      "detail": "valid"
+    },
+    {
+      "check": "Backend isolation",
+      "result": "PASS",
+      "detail": "app1/app2 have no published host ports"
+    },
+    {
+      "check": "Container state",
+      "result": "PASS",
+      "detail": "three running; both Flask backends healthy"
+    },
+    {
+      "check": "nginx syntax",
+      "result": "PASS",
+      "detail": "configuration test successful"
+    },
+    {
+      "check": "app1 user",
+      "result": "PASS",
+      "detail": "uid=100"
+    },
+    {
+      "check": "app1 templates/routes",
+      "result": "PASS",
+      "detail": "/ and /hello return their own name"
+    },
+    {
+      "check": "app1 shared storage",
+      "result": "PASS",
+      "detail": "/storage is mounted read-only"
+    },
+    {
+      "check": "app2 user",
+      "result": "PASS",
+      "detail": "uid=100"
+    },
+    {
+      "check": "app2 templates/routes",
+      "result": "PASS",
+      "detail": "/ and /hello return their own name"
+    },
+    {
+      "check": "app2 shared storage",
+      "result": "PASS",
+      "detail": "/storage is mounted read-only"
+    },
+    {
+      "check": "TLS certificate",
+      "result": "PASS",
+      "detail": "hostname/chain verified; TLSv1.3"
+    },
+    {
+      "check": "Round-robin",
+      "result": "PASS",
+      "detail": "20 HTTPS requests; strict alternation; app1=10, app2=10"
+    },
+    {
+      "check": "Browser favicon",
+      "result": "PASS",
+      "detail": "204, handled by nginx"
+    }
+  ],
+  "tls": {
+    "protocol": "TLSv1.3",
+    "certificate": {
+      "subject": [
+        [
+          [
+            "commonName",
+            "localhost"
+          ]
+        ]
+      ],
+      "issuer": [
+        [
+          [
+            "commonName",
+            "localhost"
+          ]
+        ]
+      ],
+      "version": 3,
+      "serialNumber": "42160F26430B608DF964BD21F6F2FF405722E169",
+      "notBefore": "Nov 23 19:06:42 2026 GMT",
+      "notAfter": "Nov 23 19:06:42 2027 GMT",
+      "subjectAltName": [
+        [
+          "DNS",
+          "localhost"
+        ],
+        [
+          "IP Address",
+          "127.0.0.1"
+        ]
+      ]
+    }
+  },
+  "services": [
+    {
+      "Command": "\"python3 app1.py\"",
+      "CreatedAt": "2026-11-23 22:06:43 +0300 MSK",
+      "ExitCode": 0,
+      "Health": "healthy",
+      "ID": "3a31cbfe0f34",
+      "Image": "cloudtech-lab10-app1",
+      "Labels": "com.docker.compose.project.working_dir=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10,com.docker.compose.project.config_files=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10\\docker-compose.yml,com.docker.compose.replace=app1-1,com.docker.compose.service=app1,desktop.docker.io/binds/0/Source=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10\\storage,com.docker.compose.container-number=1,com.docker.compose.depends_on=,desktop.docker.io/binds/0/SourceKind=hostFile,desktop.docker.io/binds/0/Target=/storage,desktop.docker.io/ports.scheme=v2,com.docker.compose.config-hash=3a567c35ec651bf5b2f650200463332bf61c03662a0c4578bfd16563bbf8a802,com.docker.compose.project=cloudtech-lab10,com.docker.compose.version=5.0.1,com.docker.compose.image=sha256:e964c46c8a25aac4245f1eef271481d9540381b623f9a6dcb7e518a307c9ce6c,com.docker.compose.oneoff=False",
+      "LocalVolumes": "0",
+      "Mounts": "/run/desktop/m…",
+      "Name": "cloudtech-lab10-app1-1",
+      "Names": "cloudtech-lab10-app1-1",
+      "Networks": "cloudtech-lab10_default",
+      "Ports": "8080/tcp",
+      "Project": "cloudtech-lab10",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 8080,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "12 seconds ago",
+      "Service": "app1",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 10 seconds (healthy)"
+    },
+    {
+      "Command": "\"python3 app2.py\"",
+      "CreatedAt": "2026-11-23 22:06:43 +0300 MSK",
+      "ExitCode": 0,
+      "Health": "healthy",
+      "ID": "1d391b288747",
+      "Image": "cloudtech-lab10-app2",
+      "Labels": "com.docker.compose.service=app2,desktop.docker.io/binds/0/SourceKind=hostFile,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10\\docker-compose.yml,com.docker.compose.project.working_dir=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10,com.docker.compose.replace=app2-1,com.docker.compose.version=5.0.1,desktop.docker.io/binds/0/Source=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10\\storage,desktop.docker.io/ports.scheme=v2,com.docker.compose.container-number=1,com.docker.compose.image=sha256:7759f942c0fb56f901b7048c413193d86f91d5735a4c305130dde5b5ce23fef8,com.docker.compose.config-hash=3a567c35ec651bf5b2f650200463332bf61c03662a0c4578bfd16563bbf8a802,com.docker.compose.depends_on=,com.docker.compose.project=cloudtech-lab10,desktop.docker.io/binds/0/Target=/storage",
+      "LocalVolumes": "0",
+      "Mounts": "/run/desktop/m…",
+      "Name": "cloudtech-lab10-app2-1",
+      "Names": "cloudtech-lab10-app2-1",
+      "Networks": "cloudtech-lab10_default",
+      "Ports": "8080/tcp",
+      "Project": "cloudtech-lab10",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 8080,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "12 seconds ago",
+      "Service": "app2",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 10 seconds (healthy)"
+    },
+    {
+      "Command": "\"/docker-entrypoint.…\"",
+      "CreatedAt": "2026-11-23 22:06:44 +0300 MSK",
+      "ExitCode": 0,
+      "Health": "",
+      "ID": "6c3431f08821",
+      "Image": "cloudtech-lab10-nginx",
+      "Labels": "maintainer=NGINX Docker Maintainers <docker-maint@nginx.com>,com.docker.compose.config-hash=0cc504698956fc8c34ea4fff71a8900031e3809ca46b17d1329ca29e2159cb74,com.docker.compose.container-number=1,com.docker.compose.depends_on=app2:service_healthy:false,app1:service_healthy:false,com.docker.compose.oneoff=False,com.docker.compose.service=nginx,com.docker.compose.version=5.0.1,desktop.docker.io/ports/443/tcp=127.0.0.1:443,com.docker.compose.image=sha256:cc648e719a3d7053bdff4d04dd7f2ccbbbbf8304d3beaf4dbbe32600b8431866,com.docker.compose.project=cloudtech-lab10,com.docker.compose.project.config_files=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10\\docker-compose.yml,com.docker.compose.project.working_dir=D:\\hse\\hse-2026\\cloud_tech_recovered\\practice\\lab10,com.docker.compose.replace=nginx-1,desktop.docker.io/ports.scheme=v2",
+      "LocalVolumes": "0",
+      "Mounts": "",
+      "Name": "cloudtech-lab10-nginx-1",
+      "Names": "cloudtech-lab10-nginx-1",
+      "Networks": "cloudtech-lab10_default",
+      "Ports": "127.0.0.1:443->443/tcp",
+      "Project": "cloudtech-lab10",
+      "Publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 443,
+          "PublishedPort": 443,
+          "Protocol": "tcp"
+        }
+      ],
+      "RunningFor": "11 seconds ago",
+      "Service": "nginx",
+      "Size": "0B",
+      "State": "running",
+      "Status": "Up 4 seconds"
+    }
+  ],
+  "requests": [
+    {
+      "request": 1,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:03 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 2,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:05 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 3,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:07 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 4,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:09 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 5,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:11 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 6,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:13 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 7,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:15 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 8,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:17 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 9,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:19 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 10,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:21 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 11,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:23 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 12,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:25 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 13,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:28 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 14,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:30 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 15,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:32 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 16,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:34 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 17,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:36 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 18,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:38 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 19,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app1",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:40 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>"
+    },
+    {
+      "request": 20,
+      "url": "https://localhost/",
+      "status": 200,
+      "backend": "app2",
+      "headers": {
+        "Server": "nginx/1.31.9",
+        "Date": "Mon, 23 Nov 2026 19:07:42 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "237",
+        "Connection": "close",
+        "Cache-Control": "no-store"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>"
+    }
+  ],
+  "command_outputs": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "config",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "config",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"name\": \"cloudtech-lab10\",\n  \"networks\": {\n    \"default\": {\n      \"name\": \"cloudtech-lab10_default\",\n      \"ipam\": {}\n    }\n  },\n  \"services\": {\n    \"app1\": {\n      \"build\": {\n        \"context\": \"D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\app1\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"python3\",\n          \"-c\",\n          \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/', timeout=2)\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"5s\",\n        \"retries\": 10,\n        \"start_period\": \"5s\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\storage\",\n          \"target\": \"/storage\",\n          \"read_only\": true,\n          \"bind\": {}\n        }\n      ]\n    },\n    \"app2\": {\n      \"build\": {\n        \"context\": \"D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\app2\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"entrypoint\": null,\n      \"healthcheck\": {\n        \"test\": [\n          \"CMD\",\n          \"python3\",\n          \"-c\",\n          \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/', timeout=2)\"\n        ],\n        \"timeout\": \"3s\",\n        \"interval\": \"5s\",\n        \"retries\": 10,\n        \"start_period\": \"5s\"\n      },\n      \"networks\": {\n        \"default\": null\n      },\n      \"volumes\": [\n        {\n          \"type\": \"bind\",\n          \"source\": \"D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\storage\",\n          \"target\": \"/storage\",\n          \"read_only\": true,\n          \"bind\": {}\n        }\n      ]\n    },\n    \"nginx\": {\n      \"build\": {\n        \"context\": \"D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\nginx\",\n        \"dockerfile\": \"Dockerfile\"\n      },\n      \"command\": null,\n      \"depends_on\": {\n        \"app1\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        },\n        \"app2\": {\n          \"condition\": \"service_healthy\",\n          \"required\": true\n        }\n      },\n      \"entrypoint\": null,\n      \"networks\": {\n        \"default\": null\n      },\n      \"ports\": [\n        {\n          \"mode\": \"ingress\",\n          \"host_ip\": \"127.0.0.1\",\n          \"target\": 443,\n          \"published\": \"443\",\n          \"protocol\": \"tcp\"\n        }\n      ]\n    }\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "ps",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"Command\":\"\\\"python3 app1.py\\\"\",\"CreatedAt\":\"2026-11-23 22:06:43 +0300 MSK\",\"ExitCode\":0,\"Health\":\"healthy\",\"ID\":\"3a31cbfe0f34\",\"Image\":\"cloudtech-lab10-app1\",\"Labels\":\"com.docker.compose.project.working_dir=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10,com.docker.compose.project.config_files=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\docker-compose.yml,com.docker.compose.replace=app1-1,com.docker.compose.service=app1,desktop.docker.io/binds/0/Source=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\storage,com.docker.compose.container-number=1,com.docker.compose.depends_on=,desktop.docker.io/binds/0/SourceKind=hostFile,desktop.docker.io/binds/0/Target=/storage,desktop.docker.io/ports.scheme=v2,com.docker.compose.config-hash=3a567c35ec651bf5b2f650200463332bf61c03662a0c4578bfd16563bbf8a802,com.docker.compose.project=cloudtech-lab10,com.docker.compose.version=5.0.1,com.docker.compose.image=sha256:e964c46c8a25aac4245f1eef271481d9540381b623f9a6dcb7e518a307c9ce6c,com.docker.compose.oneoff=False\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/m…\",\"Name\":\"cloudtech-lab10-app1-1\",\"Names\":\"cloudtech-lab10-app1-1\",\"Networks\":\"cloudtech-lab10_default\",\"Ports\":\"8080/tcp\",\"Project\":\"cloudtech-lab10\",\"Publishers\":[{\"URL\":\"\",\"TargetPort\":8080,\"PublishedPort\":0,\"Protocol\":\"tcp\"}],\"RunningFor\":\"12 seconds ago\",\"Service\":\"app1\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up 10 seconds (healthy)\"}\n{\"Command\":\"\\\"python3 app2.py\\\"\",\"CreatedAt\":\"2026-11-23 22:06:43 +0300 MSK\",\"ExitCode\":0,\"Health\":\"healthy\",\"ID\":\"1d391b288747\",\"Image\":\"cloudtech-lab10-app2\",\"Labels\":\"com.docker.compose.service=app2,desktop.docker.io/binds/0/SourceKind=hostFile,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\docker-compose.yml,com.docker.compose.project.working_dir=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10,com.docker.compose.replace=app2-1,com.docker.compose.version=5.0.1,desktop.docker.io/binds/0/Source=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\storage,desktop.docker.io/ports.scheme=v2,com.docker.compose.container-number=1,com.docker.compose.image=sha256:7759f942c0fb56f901b7048c413193d86f91d5735a4c305130dde5b5ce23fef8,com.docker.compose.config-hash=3a567c35ec651bf5b2f650200463332bf61c03662a0c4578bfd16563bbf8a802,com.docker.compose.depends_on=,com.docker.compose.project=cloudtech-lab10,desktop.docker.io/binds/0/Target=/storage\",\"LocalVolumes\":\"0\",\"Mounts\":\"/run/desktop/m…\",\"Name\":\"cloudtech-lab10-app2-1\",\"Names\":\"cloudtech-lab10-app2-1\",\"Networks\":\"cloudtech-lab10_default\",\"Ports\":\"8080/tcp\",\"Project\":\"cloudtech-lab10\",\"Publishers\":[{\"URL\":\"\",\"TargetPort\":8080,\"PublishedPort\":0,\"Protocol\":\"tcp\"}],\"RunningFor\":\"12 seconds ago\",\"Service\":\"app2\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up 10 seconds (healthy)\"}\n{\"Command\":\"\\\"/docker-entrypoint.…\\\"\",\"CreatedAt\":\"2026-11-23 22:06:44 +0300 MSK\",\"ExitCode\":0,\"Health\":\"\",\"ID\":\"6c3431f08821\",\"Image\":\"cloudtech-lab10-nginx\",\"Labels\":\"maintainer=NGINX Docker Maintainers \\u003cdocker-maint@nginx.com\\u003e,com.docker.compose.config-hash=0cc504698956fc8c34ea4fff71a8900031e3809ca46b17d1329ca29e2159cb74,com.docker.compose.container-number=1,com.docker.compose.depends_on=app2:service_healthy:false,app1:service_healthy:false,com.docker.compose.oneoff=False,com.docker.compose.service=nginx,com.docker.compose.version=5.0.1,desktop.docker.io/ports/443/tcp=127.0.0.1:443,com.docker.compose.image=sha256:cc648e719a3d7053bdff4d04dd7f2ccbbbbf8304d3beaf4dbbe32600b8431866,com.docker.compose.project=cloudtech-lab10,com.docker.compose.project.config_files=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10\\\\docker-compose.yml,com.docker.compose.project.working_dir=D:\\\\hse\\\\hse-2026\\\\cloud_tech_recovered\\\\practice\\\\lab10,com.docker.compose.replace=nginx-1,desktop.docker.io/ports.scheme=v2\",\"LocalVolumes\":\"0\",\"Mounts\":\"\",\"Name\":\"cloudtech-lab10-nginx-1\",\"Names\":\"cloudtech-lab10-nginx-1\",\"Networks\":\"cloudtech-lab10_default\",\"Ports\":\"127.0.0.1:443-\\u003e443/tcp\",\"Project\":\"cloudtech-lab10\",\"Publishers\":[{\"URL\":\"127.0.0.1\",\"TargetPort\":443,\"PublishedPort\":443,\"Protocol\":\"tcp\"}],\"RunningFor\":\"11 seconds ago\",\"Service\":\"nginx\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up 4 seconds\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "nginx",
+        "nginx",
+        "-t"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "nginx: the configuration file /etc/nginx/nginx.conf syntax is ok\nnginx: configuration file /etc/nginx/nginx.conf test is successful\n"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "app1",
+        "id",
+        "-u"
+      ],
+      "exit_code": 0,
+      "stdout": "100\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "app1",
+        "python3",
+        "-c",
+        "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8080/',timeout=3).read().decode())"
+      ],
+      "exit_code": 0,
+      "stdout": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "app1",
+        "python3",
+        "-c",
+        "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8080/hello',timeout=3).read().decode())"
+      ],
+      "exit_code": 0,
+      "stdout": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app1!</h1>\n</body>\n</html>\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "ps",
+        "-q",
+        "app1"
+      ],
+      "exit_code": 0,
+      "stdout": "3a31cbfe0f34e2f26d70dc93f7a69ff66a6fc11d15e4a0a80f5ba659a166755d\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "app2",
+        "id",
+        "-u"
+      ],
+      "exit_code": 0,
+      "stdout": "100\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "app2",
+        "python3",
+        "-c",
+        "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8080/',timeout=3).read().decode())"
+      ],
+      "exit_code": 0,
+      "stdout": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "app2",
+        "python3",
+        "-c",
+        "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8080/hello',timeout=3).read().decode())"
+      ],
+      "exit_code": 0,
+      "stdout": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Fashion Digital</title>\n</head>\n<body>\n<!-- Fix the mismatched closing h1 tag and show the serving backend. -->\n<h1>Hello World from app2!</h1>\n</body>\n</html>\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "ps",
+        "-q",
+        "app2"
+      ],
+      "exit_code": 0,
+      "stdout": "1d391b288747d037b2189292395221eabf35ae0e25d6d5c77651c088d3e23618\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "cloudtech-lab10",
+        "exec",
+        "-T",
+        "nginx",
+        "cat",
+        "/etc/nginx/certs/localhost.crt"
+      ],
+      "exit_code": 0,
+      "stdout": "-----BEGIN CERTIFICATE-----\nMIIDJTCCAg2gAwIBAgIUQhYPJkMLYI35ZL0h9vL/QFci4WkwDQYJKoZIhvcNAQEL\nBQAwFDESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTI2MTEyMzE5MDY0MloXDTI3MTEy\nMzE5MDY0MlowFDESMBAGA1UEAwwJbG9jYWxob3N0MIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAiv42pjg3qTZvfwLvo6MM7dH8qJNg1/UY/wDbLd2kF8D7\nmMn7SSro0UeQYwZNEll6Em5XiRi3KPO83nvNFUwr5nAG9uz5C+sp+B6l6Bo+ftK3\nyHV7o+nWy7ZO9SYqoBzAjkuPbSUP157+rh+LrSCUE1PjLPK1qMlAEiaKa8BO66dt\nPWlSFvHLTnysYvmvtBwHuGDlIF7FAUjVvkGIK2tive5UWWuztq27J7ZoJtu1rxlT\niysmGZ2ajfMHjnw5GniVZ9GF36/cYhYEPFQHl6ELc8b2eVKwAu62pkGmMLfDMfiw\nAM6ujw+DFG10GzYP36Zz+ieJlBdazy4Bw845EfMpxQIDAQABo28wbTAdBgNVHQ4E\nFgQUUzqKACPDlrBRJ3PlYZHAELsXu8owHwYDVR0jBBgwFoAUUzqKACPDlrBRJ3Pl\nYZHAELsXu8owDwYDVR0TAQH/BAUwAwEB/zAaBgNVHREEEzARgglsb2NhbGhvc3SH\nBH8AAAEwDQYJKoZIhvcNAQELBQADggEBACE78nQFGrsWWgn9Rr1+hjAdXjbyXi6v\nm69TB/vZ1E6kixx8lCLepfj7xLSidk08AkCQFIJGM586coJGk5rTMCvcLbf/em0N\n9mc/4pbFIThMdzwpSYUMgV4x9yA7/DzSgHPMi3ajkdo3zGUSz9hfrt4xLPBJZ8wj\nMRgW5CJQ1CtxmPB+9kX9sXLCIHDZaosvr1UIwHtLmw3zWzuPhUPkwde83Q/dol7Y\nWTSsdmCHZ4/kSK2Wl7t30P50ObNCPv2n9/jLMMgr80VBk0Db/PbqZ6Fp58Engb/e\nC2+QVvsiYGrOAOC03Xz9ykozXhCsexz/R3pD2UjwH6jyQXXujF5VjL4=\n-----END CERTIFICATE-----\n",
+      "stderr": ""
+    }
+  ]
+}
